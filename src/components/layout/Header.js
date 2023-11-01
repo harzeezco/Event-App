@@ -1,5 +1,5 @@
 import React from "react";
-import Next from "../../../public/next.svg"
+import Next from "/next.svg"
 import Image from "next/image";
 import Link from "next/link";
 

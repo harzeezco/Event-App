@@ -1,9 +1,9 @@
-import HeroSection from '@/components/homepage/HeroSection'
+import HomePage from './event/page'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-     <HeroSection />
+    <main className="">
+     <HomePage />
     </main>
   )
 }
