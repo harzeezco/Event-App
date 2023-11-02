@@ -1,5 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
+import Button from "../ui/button";
+import CalenderIcon from "../icons/calender-icon";
+import ArrowRightIcon from "../icons/arrow-right-icon";
+import LocationIcon from "../icons/location-icon";
 
 function EventItem({ items }) {
    const { id, title, description, location, date, image } = items;
@@ -12,19 +15,25 @@ function EventItem({ items }) {
    const formatAddress = location.replace(", ", "\n")
    const exploreLink = `/event/${id}`
    
-   return <li>
-      <Image src={"/" + image} alt={title} />
-      <div>
-         <div>
+   return <li className="item">
+      <Image  width={400} height={400} src={`/${image}`} className="w-full object-cover h-40" alt={title} />
+      <div className="e-content"> 
+         <div className="e-summary">
             <h1>{title}</h1>
-            <div>
-               <time>{humanReadableDate}</time>
-               <br />
+            <div className="e-date">
+                <CalenderIcon />
+                <time>{humanReadableDate}</time>
+            </div>
+            <div className="e-address">
+              <LocationIcon />
                <address>{formatAddress}</address>
             </div>
          </div>
-         <div>
-            <Link href={exploreLink}>Explore Event</Link>
+         <div className="e-actions">
+            <Button link={exploreLink}>
+               <span>Explore Event</span>
+               <span className="e-icon"><ArrowRightIcon /></span>
+            </Button>
          </div>
       </div>
   </li>;
